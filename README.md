@@ -31,13 +31,14 @@ ai_articles_enriched.csv under ./data/output_data
 
 ## Example: use test.ipynb for testing
 - similar article search:
-
+```python
 from embeddings import find_similar_articles
 find_similar_articles("AI startup funding", df, 5)
 
 - Search using DuckDB
 
 con=load_to_duckdb(df)
+
 
 query_result = con.sql("""
     SELECT *
