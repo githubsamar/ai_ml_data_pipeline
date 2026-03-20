@@ -1,13 +1,11 @@
-# ai_ml_data_pipeline
-
 # AI Articles ETL Pipeline
 
 ## Setup
 
 - Step1.  Download and unzip  data_pipeline_project.zip
-- Step2.  Create virtual environment venv:   python3 -m venv venv
-- Step3.  Activate venv : venv\Scripts\activate
-- Step4.  Install requirements : pip install -r requirements.txt
+- Step2.  Create virtual environment venv:   ```sh python3 -m venv venv ```
+- Step3.  Activate venv : ```sh venv\Scripts\activate ```
+- Step4.  Install requirements : ```sh pip install -r requirements.txt ```
 
 ## Run pipeline
 python pipeline.py
