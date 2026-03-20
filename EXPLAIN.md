@@ -14,7 +14,7 @@
 
 - Revenue: handled text, currency, ranges
 
-- Dates: multiple formats + fallback parsing
+- Dates: multiple formats 
 
 - Fuzzy matching for company names
 
