@@ -3,7 +3,7 @@
 ## Setup
 
 - Step1.  Download and unzip  ``` data_pipeline_project.zip ```
-- Step2.  Create virtual environment under project folder ''' data_pipeline_project ''' venv:   ``` python3 -m venv venv ```
+- Step2.  Create virtual environment(venv) under project folder ``` data_pipeline_project ``` :   ``` python3 -m venv venv ```
 - Step3.  Activate venv : ``` venv\Scripts\activate ```
 - Step4.  Install requirements : ``` pip install -r requirements.txt ```
 
