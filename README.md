@@ -34,12 +34,11 @@ ai_articles_enriched.csv under ./data/output_data
 ```python
 from embeddings import find_similar_articles
 find_similar_articles("AI startup funding", df, 5)
-
+```
 - Search using DuckDB
 
+```python
 con=load_to_duckdb(df)
-
-
 query_result = con.sql("""
     SELECT *
     FROM articles
@@ -50,3 +49,4 @@ query_result = con.sql("""
 result_df = query_result.df()
 print(result_df)
 con.close()
+```
