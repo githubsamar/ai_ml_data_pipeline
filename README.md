@@ -8,18 +8,18 @@
 - Step4.  Install requirements : ``` pip install -r requirements.txt ```
 
 ## Run pipeline
-python pipeline.py
+``` python pipeline.py ```
 
 
 ## Folder/SubFolders for iput/output data : 
-./data/iput_data, ./data/output_data 
+ ``` ./data/iput_data  ``` ,  ``` ./data/output_data  ``` 
 
 # Input files: 
-company_metadata.json, tech_news.csv
+ ``` company_metadata.json  ``` ,  ``` tech_news.csv  ``` 
 
 
 # Output file
-ai_articles_enriched.csv under ./data/output_data 
+ ``` ai_articles_enriched.csv  ```  under  ``` ./data/output_data  ``` 
 
 ## Features
 - Data cleaning (revenue, date, category)
