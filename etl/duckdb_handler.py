@@ -3,11 +3,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 
-#Function to load df to DuckDB table
+# Function to load df to DuckDB table
 def load_to_duckdb(df):
     con = duckdb.connect("articles.db")
     con.execute("CREATE TABLE IF NOT EXISTS articles AS SELECT * FROM df")
     return con
+
+# function for hybrid search: SQL filters + vector similarity
+def query_duckdb(con, query):
+    return con.execute(query).fetchdf()
 
 # define filter function
 def filter_ai_articles(df):
@@ -22,7 +26,7 @@ def filter_ai_articles(df):
     ]
     
     df = df[[ 'article_id', 'title', 'company_name', 'published_date', 'category', 
-            'revenue_usd', 'summary', 'url', 'industry', 'founded_year', 'headquarters', 
+            'revenue_usd', 'year', 'summary', 'url', 'industry', 'founded_year', 'headquarters', 
             'employee_count', 'is_public', 'stock_ticker', 'company_age', 'company_size_category' , 
             'embedding', 'top_similar_articles']]
     return df

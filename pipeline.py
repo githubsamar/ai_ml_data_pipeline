@@ -8,6 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import polars as pl
 import json
+from etl.data_validation import *
 
 def run_pipeline():
     
@@ -58,6 +59,12 @@ def run_pipeline():
     # -----------------------------------------------------
     df["category"] = df["category"].apply(normalize_category)
     
+    
+    # -----------------------------------------------------
+    # Company name validation 
+    # -----------------------------------------------------
+    df = validate_company_names(df, metadata)
+    
     # -----------------------------------------------------
     # Enrichment (join news_data with company's metadata)
     # -----------------------------------------------------
@@ -85,10 +92,20 @@ def run_pipeline():
     # -----------------------------------------------------
     df = add_top_similar(df)
 
+
+
+    # -----------------------------
+    # Load into DuckDB  
+    # DuckDB Integration with Vector Storage
+    # -----------------------------
+    load_to_duckdb(df)
+
     # -----------------------------------------------------
     # Filter function
     # -----------------------------------------------------
     df = filter_ai_articles(df)
+
+   
 
     # -----------------------------------------------------
     # Export function to write output data in csv
@@ -96,7 +113,16 @@ def run_pipeline():
     export_csv(df)
     
 
+    
 
+    validation_report = run_data_validation(df)
+
+    save_validation_report(validation_report)
+
+    if any(validation_report["schema"]):
+        raise Exception("Schema validation failed!")
+    
+    print("Pipeline completed successfully!")
 
 if __name__ == '__main__':
     run_pipeline()

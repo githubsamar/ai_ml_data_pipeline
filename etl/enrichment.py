@@ -1,9 +1,4 @@
 import pandas as pd
-from fuzzywuzzy import process
-
-def match_company(name, metadata_names):
-    match, score = process.extractOne(name, metadata_names)
-    return match if score > 80 else None
 
 
 def compute_company_age(founded_year, published_date):

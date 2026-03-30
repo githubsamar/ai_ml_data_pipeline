@@ -6,7 +6,8 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 
-#generate embedding
+
+# Text Embedding Generation  
 def generate_embedding(text):
     return model.encode(text)
 
@@ -17,7 +18,8 @@ def add_embeddings(df):
     return df
 
 
-# function for similar search
+
+# Vector Similarity Search  function
 def find_similar_articles(query, df, top_k=5):
     query_emb = generate_embedding(query)
 

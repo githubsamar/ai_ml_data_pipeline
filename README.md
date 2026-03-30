@@ -5,7 +5,8 @@
 - Step1.  Download and unzip  ``` data_pipeline_project.zip ```
 - Step2.  Create virtual environment(venv) under project folder ``` data_pipeline_project ``` :   ``` python3 -m venv venv ```
 - Step3.  Activate venv : ``` venv\Scripts\activate ```
-- Step4.  Install requirements : ``` pip install -r requirements.txt ```
+- Step4.  Install Dependencies : ``` pip install -r requirements.txt ```
+
 
 ## Run pipeline
 ``` python pipeline.py ```
@@ -36,7 +37,7 @@ find_similar_articles("AI startup funding", df, 5)
 - Search using DuckDB
 
 ```python
-con=load_to_duckdb(df)
+con = duckdb.connect("articles.db")
 query_result = con.sql("""
     SELECT *
     FROM articles
